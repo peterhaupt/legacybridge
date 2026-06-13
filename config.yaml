@@ -1,7 +1,7 @@
 # Local GUI agent configuration. Edit here — nothing is hardcoded in the script.
 
 # Which model backend to use (file backends/<backend>.py). 'qwen' covers any
-# JSON-emitting mlx-vlm model (Qwen3-VL, Gemma); 'uitars' is the GUI-specialist.
+# JSON-emitting mlx-vlm model (Qwen3-VL, Gemma).
 backend: qwen
 
 model:
