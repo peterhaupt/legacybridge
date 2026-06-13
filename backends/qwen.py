@@ -55,12 +55,69 @@ def predict(handle, task, history, image_path, screen, settings):
     return action
 
 
+def locate(handle, target, image_path, screen, settings):
+    """Deterministic-runner helper: ask the model ONLY where a described target
+    is, and return (x, y, raw) in LOGICAL screen coordinates. The harness owns
+    the step sequence — the model never decides what to do, only where to click."""
+    prompt = settings["locate_prompt"].replace("{target}", target)
+    formatted = apply_chat_template(handle["processor"], handle["mlx_config"], prompt, num_images=1)
+    result = generate(
+        handle["model"],
+        handle["processor"],
+        formatted,
+        [image_path],
+        max_tokens=settings["model"]["max_tokens"],
+        temperature=settings["model"]["temperature"],
+        verbose=False,
+    )
+    raw = result if isinstance(result, str) else getattr(result, "text", str(result))
+    try:
+        action = _parse(raw)
+    except ValueError:
+        # locate only needs a coordinate pair; if the JSON is unparseable
+        # (e.g. {"x": 317, 309} — missing the y key), take the first two ints.
+        nums = re.findall(r"-?\d+", raw)
+        if len(nums) < 2:
+            raise
+        action = {"x": int(nums[0]), "y": int(nums[1])}
+    _normalize_point(action)
+    _to_logical(action, image_path, screen, settings["model"].get("coord_space", "logical"))
+    return action["x"], action["y"], raw
+
+
 def _parse(raw):
-    """Pull the first JSON object out of the model's reply."""
-    match = re.search(r"\{.*\}", raw, re.DOTALL)
-    if not match:
+    """Pull the first JSON object out of the model's reply, tolerating the
+    malformations Qwen emits: markdown fences, a second trailing object, single
+    quotes, unquoted keys, trailing commas. The raw reply is always included in
+    the error so a parse failure is never blind."""
+    text = raw.strip()
+    fence = re.search(r"```(?:json)?\s*(.*?)```", text, re.DOTALL)
+    if fence:
+        text = fence.group(1).strip()
+    # Match INNERMOST {...} blocks (no nested braces). Our action objects are
+    # always flat, and Qwen sometimes wraps the real one in an extra brace
+    # ( { {"x":..} } ) or appends a second object — this skips both. Return the
+    # first candidate that parses and actually carries a coordinate or action.
+    candidates = re.findall(r"\{[^{}]*\}", text, re.DOTALL)
+    if not candidates:
         raise ValueError(f"No JSON object in model reply:\n{raw}")
-    return json.loads(match.group(0))
+    for blob in candidates:
+        for candidate in (blob, _relax_json(blob)):
+            try:
+                obj = json.loads(candidate)
+            except json.JSONDecodeError:
+                continue
+            if "x" in obj or "action" in obj:
+                return obj
+    raise ValueError(f"Could not parse JSON from model reply:\n{raw}")
+
+
+def _relax_json(s):
+    """Best-effort repair of the JSON-ish shapes Qwen sometimes emits."""
+    s = re.sub(r",\s*([}\]])", r"\1", s)                          # trailing commas
+    s = s.replace("'", '"')                                        # single -> double quotes
+    s = re.sub(r"([{,]\s*)([A-Za-z_]\w*)(\s*:)", r'\1"\2"\3', s)   # quote bare keys
+    return s
 
 
 def _normalize_point(action):

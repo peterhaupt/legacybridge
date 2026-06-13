@@ -167,12 +167,75 @@ def run_once(backend, handle, settings, task):
     print(f"\nNo action executed. Result written to {out_path}", file=sys.stderr)
 
 
+def run_workflow(backend, handle, settings, workflow_path, start_step=1):
+    """Deterministic step-runner. The workflow YAML holds a fixed ordered list of
+    steps; we execute exactly one per iteration, in order, never re-judging
+    progress. Keyboard steps (hotkey/type/scroll/wait) run directly with no model
+    call. Click steps ask the backend ONLY for the coordinates of a described
+    target, then click once. A screenshot + trace is written for every step so a
+    failure is pinpointed to a single step."""
+    focus_target(settings)
+
+    with open(workflow_path) as f:
+        steps = yaml.safe_load(f)["steps"]
+
+    log_path = os.path.join(settings["screenshots"]["dir"], "trace.log")
+    with open(log_path, "w") as f:  # fresh trace per run
+        f.write(f"WORKFLOW: {workflow_path}\nBACKEND: {settings['backend']}\nSTEPS: {len(steps)}\n")
+
+    screen = pyautogui.size()
+    for i, step in enumerate(steps, 1):
+        if i < start_step:  # resume mid-flow: Tryton must already be in step i's state
+            continue
+        shot_path = os.path.join(settings["screenshots"]["dir"], f"step_{i:02d}.png")
+        shot_path, scale, shot_w, shot_h = grab_screenshot(shot_path, settings.get("grid"))
+
+        kind = step["action"]
+        # Write the header BEFORE locating, so a crash inside locate() still
+        # leaves a trace pointing at the exact step and target.
+        write_trace(log_path, "".join([
+            f"\n===== STEP {i}/{len(steps)}: {kind} =====\n",
+            f"[INPUT IMAGE]  {shot_path}  size={shot_w}x{shot_h}px  scale={scale}\n",
+        ]))
+
+        if kind in ("click", "double_click", "right_click"):
+            if "at_frac" in step:
+                # Fixed position as a FRACTION of screen size, resolved against the
+                # live screen size at runtime — so it survives resolution/scaling
+                # changes (as long as the Tryton window stays maximized). Used only
+                # for the label-less Lines '+' icon the vision model can't localize.
+                fx, fy = step["at_frac"]
+                x, y = round(fx * screen[0]), round(fy * screen[1])
+                write_trace(log_path, f"[FIXED-FRAC]  {step['at_frac']} -> ({x},{y}) [logical]\n")
+            else:
+                target = step["target"]
+                write_trace(log_path, f"[TARGET]  {target}\n")
+                t0 = time.time()
+                x, y, raw = backend.locate(handle, target, shot_path, screen, settings)
+                elapsed = time.time() - t0
+                write_trace(log_path, f"[LOCATE]  ({elapsed:.1f}s) -> ({x},{y}) [logical]\n[RAW]  {raw}\n")
+            step = {**step, "x": x, "y": y}
+
+        line = f"{i}. {kind} {step.get('target', step.get('keys', step.get('text', '')))}"
+        print(line)
+
+        detail = execute(step)
+        write_trace(log_path, f"[EXECUTION]  {detail}\n")
+        time.sleep(settings["loop"]["delay_after_action"])
+
+    print("Workflow complete.", file=sys.stderr)
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("task", help="what the agent should accomplish")
+    ap.add_argument("task", nargs="?", help="what the agent should accomplish (model-driven mode)")
     ap.add_argument("--config", default="config.yaml")
     ap.add_argument("--once", action="store_true",
                     help="dry run: one screenshot -> coords, execute nothing")
+    ap.add_argument("--workflow",
+                    help="run a fixed YAML workflow deterministically (harness owns the sequence)")
+    ap.add_argument("--start-step", type=int, default=1,
+                    help="resume a workflow from this step (Tryton must already be in that state)")
     args = ap.parse_args()
 
     settings = load_settings(args.config)
@@ -181,6 +244,10 @@ def main():
     backend = load_backend(settings)
     print(f"Loading backend '{settings['backend']}': {settings['model']['path']} ...", file=sys.stderr)
     handle = backend.load(settings)
+
+    if args.workflow:
+        run_workflow(backend, handle, settings, args.workflow, args.start_step)
+        return
 
     if args.once:
         run_once(backend, handle, settings, args.task)

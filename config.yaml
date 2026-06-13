@@ -8,7 +8,11 @@ model:
   path: "/Users/peter/models/mlx/Qwen3.5-35B-A3B-4bit"
   max_tokens: 512
   temperature: 0.0          # deterministic: we want reliable actions, not creativity
-  coord_space: "logical"    # how the model reports coords: logical | image | normalized (calibrate via --once)
+  coord_space: "normalized" # how the model reports coords: logical | image | normalized.
+                            # Qwen3.5 emits 0..1000 over the image; treating it as
+                            # "logical" made every narrow target miss by ~0.66x (wide
+                            # tree/dialog rows got hit anyway). Verified against two
+                            # toolbar icons: 328->496 (actual 493), 949->1435 (1430).
 
 # macOS app to bring to the front before acting, so we never rely on manual
 # window focus. Must match the running process name (see menu bar).
@@ -57,3 +61,17 @@ system_prompt: |
 
   Actions taken so far:
   {history}
+
+# Used by the deterministic workflow runner (--workflow). The harness owns the
+# step sequence; the model is asked ONLY to locate a described target and return
+# its pixel coordinates. {target} is filled in per click step.
+locate_prompt: |
+  You are looking at a screenshot of a desktop application (the Tryton ERP).
+  Find this exact on-screen element: {target}
+
+  Reply with ONLY one JSON object, no prose, giving the pixel coordinates of the
+  CENTER of that element (origin top-left):
+  {"x": <int>, "y": <int>}
+
+  Aim at the exact center of the element. If it is a row of text, aim at the
+  middle of the text. If it is a small toolbar icon, aim at the icon's center.

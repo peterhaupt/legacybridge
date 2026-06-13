@@ -1,0 +1,72 @@
+# Deterministic workflow: create and post a customer invoice for Angela Martin
+# with one line of A4 Paper 500 (qty 1, unit price 50).
+#
+# Run from the Customer Invoices list NOT yet open (clean Tryton, left tree visible):
+#   .venv/bin/python agent.py --workflow workflows/invoice_angela.yaml --config config.yaml
+#
+# Keyboard steps run directly (no model). Click steps ask the model only for the
+# coordinates of the described target. One step per iteration, in fixed order.
+steps:
+  - action: double_click
+    target: "the 'Customer Invoices' menu item in the left navigation tree, under Financial > Invoices"
+
+  # New invoice. Ctrl+N creates a new record; the Party field becomes focused.
+  - action: hotkey
+    keys: [ctrl, n]
+
+  # Party is focused -> F2 opens the 'Open/Search relation' dialog for it.
+  - action: hotkey
+    keys: [f2]
+  - action: double_click
+    target: "the row labeled 'Angela Martin' in the Search Party dialog list"
+  # Double-click selects the row but leaves the dialog open; Enter confirms+closes.
+  - action: hotkey
+    keys: [enter]
+
+  # Add an invoice line. F3 doesn't work (the empty Lines list won't take keyboard
+  # focus from a click), and the vision model deterministically mislocates this
+  # tiny label-less '+' icon (it points at the Reference field). So this ONE click
+  # is a fixed screen-fraction position — the single non-Qwen click in the flow.
+  # Fraction measured on 1512x982 (logical 1350,422). Re-measure only if the form
+  # layout changes; resolution/scaling changes are handled automatically.
+  - action: click
+    at_frac: [0.893, 0.430]   # fraction of screen (w,h); resolved at runtime
+
+  # Product on the line. Focus the Product field, F2 opens its search dialog.
+  - action: click
+    target: "the Product input field in the line editor dialog"
+  - action: hotkey
+    keys: [f2]
+  - action: double_click
+    target: "the row labeled 'A4 Paper 500' in the Search Product dialog list"
+  # Confirm+close the selection dialog (same as the party dialog above).
+  - action: hotkey
+    keys: [enter]
+
+  # Quantity and unit price (the two fields that need typing).
+  - action: click
+    target: "the Quantity input field in the line editor dialog"
+  - action: type
+    text: "1"
+  - action: click
+    target: "the Unit Price input field (the wide box to the right of the USD currency label)"
+  - action: type
+    text: "50"
+
+  # Save the line, then post the invoice and confirm.
+  # 2nd fixed exception: at temperature 0 the model deterministically returns the
+  # SAME point on 'Add and New' regardless of phrasing (tried 3 descriptions) — it
+  # cannot separate the two adjacent 'Add' buttons. So this click is a fixed
+  # screen-fraction too. Fraction measured on 1512x982 (logical 1390,827).
+  - action: click
+    at_frac: [0.919, 0.842]   # fraction of screen (w,h) — the '✓ Add' button
+  # 3rd fixed exception: the model deterministically clicks the bottom EDGE of the
+  # Post button (y~918) and misses; three precise descriptions didn't move it.
+  # Post is a static button, so use a fixed screen-fraction (center 1360,894).
+  - action: click
+    at_frac: [0.900, 0.910]   # fraction of screen — center of the '✓ Post' button
+  # 4th fixed exception: the 'Yes' button of the post-confirmation modal. A static
+  # dialog button; the model isn't reliable on it and a wrong hit ('No') is the
+  # worst case. Center measured at logical (847,500) on 1512x982.
+  - action: click
+    at_frac: [0.560, 0.509]   # fraction of screen — the 'Yes' button
