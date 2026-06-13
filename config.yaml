@@ -1,18 +1,35 @@
 # Local GUI agent configuration. Edit here — nothing is hardcoded in the script.
 
+# Which model backend to use (file backends/<backend>.py). 'qwen' covers any
+# JSON-emitting mlx-vlm model (Qwen3-VL, Gemma); 'uitars' is the GUI-specialist.
+backend: qwen
+
 model:
-  # Local Gemma 4 12B 8-bit, already downloaded. Any mlx-vlm path/HF id works.
-  path: "/Users/peter/models/mlx/gemma-4-12B-it-8bit"
+  path: "/Users/peter/models/mlx/Qwen3.5-35B-A3B-4bit"
   max_tokens: 512
   temperature: 0.0          # deterministic: we want reliable actions, not creativity
+  coord_space: "logical"    # how the model reports coords: logical | image | normalized (calibrate via --once)
+
+# macOS app to bring to the front before acting, so we never rely on manual
+# window focus. Must match the running process name (see menu bar).
+target_app: "tryton"
+focus_delay: 1.5            # seconds to wait after activating the app before screenshotting
 
 loop:
-  start_delay: 5            # seconds before the first screenshot — bring the target window (Tryton) to front
+  start_delay: 0            # extra seconds before the first screenshot (focus is now automatic)
   max_steps: 30             # hard stop so a confused model can't run forever
   delay_after_action: 1.2   # seconds to wait for the UI to react before the next screenshot
 
 screenshots:
   dir: "runs"               # each step's screenshot is saved here for debugging
+
+# Labeled coordinate grid drawn onto each screenshot before it goes to Gemma.
+# Labels are in LOGICAL coords (the space the model outputs), so it can read
+# precise x/y off the lines. Tune spacing if clicks are imprecise.
+grid:
+  enabled: false
+  spacing: 100             # logical px between gridlines
+  font_size: 40            # px in the full-res screenshot (survives the model's downscale)
 
 # The instruction the model gets every step. {task} and {history} are filled in by the script.
 system_prompt: |
@@ -20,7 +37,12 @@ system_prompt: |
   Your task: {task}
 
   Look at the screenshot and decide the SINGLE next action to make progress.
-  Coordinates are pixels in the screenshot, origin top-left.
+  Coordinates are pixels in the screenshot, origin top-left. Aim at the exact
+  center of the target (e.g. the middle of a menu row's text).
+
+  FIRST check whether the task is already complete: read the breadcrumb / active
+  tab title at the top of the content area. If it already shows the target view,
+  reply with action "done". Never repeat an action that already succeeded.
 
   Reply with ONLY one JSON object, no prose, in this exact shape:
   {"thought": "<one short sentence>", "action": "<one of: click|double_click|right_click|type|hotkey|scroll|wait|done>", "x": <int>, "y": <int>, "text": "<for type>", "keys": ["cmd","s"], "amount": <int for scroll, negative=down>, "reason": "<only for done>"}
