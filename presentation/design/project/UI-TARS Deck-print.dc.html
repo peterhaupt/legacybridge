@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;background:#0D1117;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+    @keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+    button{font-family:inherit;}
+  </style>
+</helmet>
+
+<div style="position:fixed;inset:0;background:#0D1117;overflow:hidden;font-family:'Space Grotesk',sans-serif;">
+
+  <div ref="{{ boardRef }}" style="position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%);transform-origin:center center;background:#0D1117;overflow:hidden;">
+
+    <div style="position:absolute;top:-240px;left:-180px;width:980px;height:980px;background:radial-gradient(circle,rgba(59,130,246,0.10),transparent 62%);pointer-events:none;"></div>
+
+    <!-- ===================== SLIDE 1 — PROBLEM ===================== -->
+    <sc-if value="{{ a0 }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="01 Problem" style="position:absolute;inset:0;padding:92px 120px 112px;display:flex;flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:6px;color:#3B82F6;text-transform:uppercase;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;">01 — The Problem</span>
+        <h1 style="margin:20px 0 0;font-size:66px;font-weight:600;line-height:1.04;letter-spacing:-1.5px;color:#F1F5F9;max-width:1240px;text-wrap:balance;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.06s;">ERP Systems Demand Expert Human Operation</h1>
+        <div style="display:flex;flex:1;gap:80px;margin-top:54px;min-height:0;align-items:center;">
+          <div style="flex:0 0 43%;display:flex;flex-direction:column;gap:30px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.14s;">
+            <div style="display:flex;gap:18px;align-items:flex-start;"><span style="flex:0 0 auto;width:10px;height:10px;border-radius:2px;background:#3B82F6;margin-top:15px;"></span><span style="font-size:30px;line-height:1.42;color:#94A3B8;text-wrap:pretty;">Every workflow requires trained staff clicking through menus</span></div>
+            <div style="display:flex;gap:18px;align-items:flex-start;"><span style="flex:0 0 auto;width:10px;height:10px;border-radius:2px;background:#3B82F6;margin-top:15px;"></span><span style="font-size:30px;line-height:1.42;color:#94A3B8;text-wrap:pretty;">One wrong step breaks the process — errors are costly</span></div>
+            <div style="display:flex;gap:18px;align-items:flex-start;"><span style="flex:0 0 auto;width:10px;height:10px;border-radius:2px;background:#3B82F6;margin-top:15px;"></span><span style="font-size:30px;line-height:1.42;color:#94A3B8;text-wrap:pretty;">Scaling operations means hiring more operators</span></div>
+          </div>
+          <div style="flex:1;background:#11161F;border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:40px 44px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.22s;box-shadow:0 30px 70px -40px rgba(0,0,0,0.8);">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:20px;margin-bottom:8px;">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:21px;letter-spacing:2px;color:#CBD5E1;">MANUAL WORKFLOW</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#64748B;">create one invoice</span>
+            </div>
+            <div style="display:flex;flex-direction:column;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-size:24px;color:#E2E8F0;">Open customer module</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#F87171;background:rgba(248,113,113,0.12);padding:5px 13px;border-radius:7px;">0:40</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-size:24px;color:#E2E8F0;">Search &amp; select the customer</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#F87171;background:rgba(248,113,113,0.12);padding:5px 13px;border-radius:7px;">1:10</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-size:24px;color:#E2E8F0;">Create invoice, add line items</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#F87171;background:rgba(248,113,113,0.12);padding:5px 13px;border-radius:7px;">4:30</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-size:24px;color:#E2E8F0;">Apply tax &amp; payment terms</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#F87171;background:rgba(248,113,113,0.12);padding:5px 13px;border-radius:7px;">2:00</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;"><span style="font-size:24px;color:#E2E8F0;">Review &amp; confirm</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:#F87171;background:rgba(248,113,113,0.12);padding:5px 13px;border-radius:7px;">1:20</span></div>
+            </div>
+            <div style="margin-top:18px;padding-top:24px;border-top:1px solid rgba(248,113,113,0.25);display:flex;align-items:baseline;justify-content:space-between;">
+              <span style="font-size:38px;font-weight:600;color:#F87171;">≈ 18 min</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#94A3B8;text-align:right;">per invoice · 1 trained operator<br>one mistake = redo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- ===================== SLIDE 2 — INSIGHT ===================== -->
+    <sc-if value="{{ a1 }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="02 Insight" style="position:absolute;inset:0;padding:92px 120px 112px;display:flex;flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:6px;color:#3B82F6;text-transform:uppercase;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;">02 — The Insight</span>
+        <h1 style="margin:20px 0 0;font-size:66px;font-weight:600;line-height:1.04;letter-spacing:-1.5px;color:#F1F5F9;max-width:1300px;text-wrap:balance;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.06s;">What If AI Could Just… Use the Software?</h1>
+        <div style="display:flex;gap:56px;margin-top:40px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.14s;">
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">Not an integration — the AI sees the screen like you do</span></div>
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">Give it a task in plain language, it executes end-to-end</span></div>
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">No API, no plugin, no custom connector needed</span></div>
+        </div>
+        <div style="flex:1;display:flex;align-items:center;gap:48px;margin-top:30px;min-height:0;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.22s;">
+          <div style="flex:0 0 520px;background:#11161F;border:1px solid rgba(255,255,255,0.08);border-radius:22px 22px 22px 6px;padding:36px 40px;box-shadow:0 30px 70px -40px rgba(0,0,0,0.8);">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:18px;letter-spacing:2px;color:#64748B;">PLAIN-LANGUAGE TASK</span>
+            <p style="margin:18px 0 0;font-size:34px;line-height:1.32;color:#F1F5F9;font-weight:500;">“Create an invoice for Acme Corp, €4,200.”</p>
+          </div>
+          <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:14px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:20px;letter-spacing:2px;color:#fff;background:#3B82F6;padding:10px 22px;border-radius:999px;box-shadow:0 12px 30px -8px rgba(59,130,246,0.7);">UI-TARS</span>
+            <span style="font-size:60px;color:#3B82F6;line-height:0.6;font-weight:300;">→</span>
+          </div>
+          <div style="flex:1;background:#0E141D;border:1px solid rgba(255,255,255,0.1);border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -40px rgba(0,0,0,0.9);">
+            <div style="display:flex;align-items:center;gap:9px;padding:14px 20px;background:#161C26;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="width:13px;height:13px;border-radius:50%;background:#3a4151;"></span><span style="width:13px;height:13px;border-radius:50%;background:#3a4151;"></span><span style="width:13px;height:13px;border-radius:50%;background:#3a4151;"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:17px;color:#64748B;margin-left:10px;">Tryton — Customer Invoices</span></div>
+            <div style="padding:30px 34px;display:flex;flex-direction:column;gap:22px;">
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:#64748B;margin-bottom:8px;">CUSTOMER</div><div style="height:48px;border:1px solid rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:23px;color:#E2E8F0;background:rgba(255,255,255,0.02);">Acme Corp</div></div>
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:#64748B;margin-bottom:8px;">AMOUNT</div><div style="height:48px;border:1.5px solid #3B82F6;border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:23px;color:#F1F5F9;background:rgba(59,130,246,0.08);box-shadow:0 0 0 4px rgba(59,130,246,0.12);">€4,200<span style="width:2px;height:26px;background:#3B82F6;margin-left:3px;animation:blink 1s step-end infinite;"></span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#3B82F6;">typing…</span></div></div>
+              <div style="display:flex;justify-content:flex-end;margin-top:4px;"><span style="font-size:20px;color:#fff;background:#3B82F6;padding:11px 26px;border-radius:8px;font-weight:500;">Post invoice</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- ===================== SLIDE 3 — ARCHITECTURE ===================== -->
+    <sc-if value="{{ a2 }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="03 Architecture" style="position:absolute;inset:0;padding:92px 120px 112px;display:flex;flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:6px;color:#3B82F6;text-transform:uppercase;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;">03 — How It Works</span>
+        <h1 style="margin:20px 0 0;font-size:66px;font-weight:600;line-height:1.04;letter-spacing:-1.5px;color:#F1F5F9;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.06s;">See. Think. Act. Repeat.</h1>
+        <div style="display:flex;gap:56px;margin-top:40px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.14s;">
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">Screenshot captures the current UI state in real time</span></div>
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">UI-TARS reasons: what is visible, what action is needed</span></div>
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">Agent executes a click or keystroke — then loops again</span></div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:20px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.22s;">
+          <div style="display:flex;align-items:stretch;gap:22px;">
+            <div style="flex:1;background:#11161F;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;gap:18px;"><span style="width:66px;height:66px;border-radius:15px;background:rgba(59,130,246,0.12);display:flex;align-items:center;justify-content:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2 2 0 0 1 5 6.5h2L8.2 4.5h7.6L17 6.5h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.3"/></svg></span><span style="font-size:28px;font-weight:600;color:#F1F5F9;">Screenshot</span><span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#64748B;line-height:1.4;">capture current state</span></div>
+            <span style="align-self:center;font-size:40px;color:#3B82F6;font-weight:300;">→</span>
+            <div style="flex:1;background:#11161F;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;gap:18px;"><span style="width:66px;height:66px;border-radius:15px;background:rgba(59,130,246,0.12);display:flex;align-items:center;justify-content:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg></span><span style="font-size:28px;font-weight:600;color:#F1F5F9;">UI-TARS Reasoning</span><span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#64748B;line-height:1.4;">what's visible · what next</span></div>
+            <span style="align-self:center;font-size:40px;color:#3B82F6;font-weight:300;">→</span>
+            <div style="flex:1;background:#11161F;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;gap:18px;"><span style="width:66px;height:66px;border-radius:15px;background:rgba(59,130,246,0.12);display:flex;align-items:center;justify-content:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="#3B82F6" stroke="none"><path d="M6 4l13 6.5-5.4 1.6L11.5 19z"/></svg></span><span style="font-size:28px;font-weight:600;color:#F1F5F9;">Action: Click / Type</span><span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#64748B;line-height:1.4;">execute the input</span></div>
+            <span style="align-self:center;font-size:40px;color:#3B82F6;font-weight:300;">→</span>
+            <div style="flex:1;background:#11161F;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;gap:18px;"><span style="width:66px;height:66px;border-radius:15px;background:rgba(59,130,246,0.12);display:flex;align-items:center;justify-content:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8.5"/><path d="M20 4v4.5h-4.5"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 15.5"/><path d="M4 20v-4.5h4.5"/></svg></span><span style="font-size:28px;font-weight:600;color:#F1F5F9;">New State</span><span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#64748B;line-height:1.4;">the UI updates</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;margin-top:30px;padding:0 40px;">
+            <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(59,130,246,0.5));"></div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:21px;color:#3B82F6;white-space:nowrap;letter-spacing:1px;">↺ continuous perception–action cycle</span>
+            <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(59,130,246,0.5),transparent);"></div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- ===================== SLIDE 4 — DEMO (LIVE WALKTHROUGH) ===================== -->
+    <sc-if value="{{ a3 }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="04 Live Demo" style="position:absolute;inset:0;padding:92px 120px 112px;display:flex;flex-direction:column;">
+        <div style="display:flex;align-items:center;gap:20px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:6px;color:#3B82F6;text-transform:uppercase;">04 — Live Demo</span>
+          <span style="display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:17px;letter-spacing:1px;color:#fff;background:rgba(59,130,246,0.16);border:1px solid rgba(59,130,246,0.5);padding:6px 14px;border-radius:999px;"><span style="width:9px;height:9px;border-radius:50%;background:#3B82F6;animation:blink 1.4s step-end infinite;"></span>LIVE WALKTHROUGH</span>
+        </div>
+        <h1 style="margin:20px 0 0;font-size:66px;font-weight:600;line-height:1.04;letter-spacing:-1.5px;color:#F1F5F9;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.06s;">Invoice Created End-to-End, Autonomously</h1>
+        <div style="display:flex;flex:1;gap:64px;margin-top:46px;min-height:0;align-items:center;">
+          <div style="flex:0 0 38%;display:flex;flex-direction:column;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.14s;">
+            <div style="display:flex;align-items:center;gap:20px;padding-bottom:26px;position:relative;"><span style="flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:#3B82F6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;">1</span><span style="font-size:28px;color:#F1F5F9;">Prompt received</span><span style="position:absolute;left:23px;top:48px;height:26px;width:2px;background:rgba(59,130,246,0.35);"></span></div>
+            <div style="display:flex;align-items:center;gap:20px;padding-bottom:26px;position:relative;"><span style="flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:#3B82F6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;">2</span><span style="font-size:28px;color:#F1F5F9;">Menu navigated</span><span style="position:absolute;left:23px;top:48px;height:26px;width:2px;background:rgba(59,130,246,0.35);"></span></div>
+            <div style="display:flex;align-items:center;gap:20px;padding-bottom:26px;position:relative;"><span style="flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:#3B82F6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;">3</span><span style="font-size:28px;color:#F1F5F9;">Fields filled</span><span style="position:absolute;left:23px;top:48px;height:26px;width:2px;background:rgba(59,130,246,0.35);"></span></div>
+            <div style="display:flex;align-items:center;gap:20px;"><span style="flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:#3B82F6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;">4</span><span style="font-size:28px;color:#F1F5F9;">Invoice confirmed</span></div>
+          </div>
+          <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:22px;min-height:0;height:100%;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.22s;">
+            <div style="border:1.5px solid rgba(59,130,246,0.4);border-radius:12px;background:#0E141D;box-shadow:0 0 0 4px rgba(59,130,246,0.06);overflow:hidden;display:flex;flex-direction:column;"><div style="display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span></div><div style="flex:1;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#475569;">Screenshot · Step 1</div></div>
+            <div style="border:1.5px solid rgba(59,130,246,0.4);border-radius:12px;background:#0E141D;box-shadow:0 0 0 4px rgba(59,130,246,0.06);overflow:hidden;display:flex;flex-direction:column;"><div style="display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span></div><div style="flex:1;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#475569;">Screenshot · Step 2</div></div>
+            <div style="border:1.5px solid rgba(59,130,246,0.4);border-radius:12px;background:#0E141D;box-shadow:0 0 0 4px rgba(59,130,246,0.06);overflow:hidden;display:flex;flex-direction:column;"><div style="display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span></div><div style="flex:1;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#475569;">Screenshot · Step 3</div></div>
+            <div style="border:1.5px solid rgba(59,130,246,0.4);border-radius:12px;background:#0E141D;box-shadow:0 0 0 4px rgba(59,130,246,0.06);overflow:hidden;display:flex;flex-direction:column;"><div style="display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span><span style="width:10px;height:10px;border-radius:50%;background:#2b3242;"></span></div><div style="flex:1;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#475569;">Screenshot · Step 4</div></div>
+          </div>
+        </div>
+        <div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:21px;color:#3B82F6;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.3s;">⏱ full workflow completed in under 60 seconds — zero clicks from us</div>
+      </div>
+    </sc-if>
+
+    <!-- ===================== SLIDE 5 — WHY LOCAL ===================== -->
+    <sc-if value="{{ a4 }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="05 Why Local" style="position:absolute;inset:0;padding:92px 120px 112px;display:flex;flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:6px;color:#3B82F6;text-transform:uppercase;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;">05 — Why Local</span>
+        <h1 style="margin:20px 0 0;font-size:66px;font-weight:600;line-height:1.04;letter-spacing:-1.5px;color:#F1F5F9;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.06s;">Fully Private. Runs on Your Hardware.</h1>
+        <div style="display:flex;gap:56px;margin-top:40px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.14s;">
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">No data leaves your machine — ever</span></div>
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">No cloud subscription, no API key, no vendor dependency</span></div>
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">Works offline — air-gapped environments supported</span></div>
+        </div>
+        <div style="flex:1;display:flex;gap:34px;margin-top:36px;min-height:0;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.22s;">
+          <div style="flex:1;border:1px dashed rgba(248,113,113,0.45);border-radius:20px;background:rgba(248,113,113,0.04);padding:38px 40px;display:flex;flex-direction:column;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:20px;letter-spacing:2px;color:#F87171;">CLOUD AI</span>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;">
+              <span style="display:flex;align-items:center;gap:14px;font-size:26px;color:#F87171;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h9a4 4 0 0 0 0-8 5 5 0 0 0-9.6-1.5A3.5 3.5 0 0 0 7 18z"/></svg>cloud server</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#F87171;letter-spacing:1px;">↑ your data travels here</span>
+              <div style="border-left:2px dashed rgba(248,113,113,0.6);height:40px;"></div>
+              <div style="border:1px solid rgba(248,113,113,0.5);border-radius:10px;padding:14px 26px;font-size:24px;color:#E2E8F0;">your machine</div>
+            </div>
+          </div>
+          <div style="flex:1;border:1.5px solid #3B82F6;border-radius:20px;background:rgba(59,130,246,0.06);padding:38px 40px;display:flex;flex-direction:column;box-shadow:inset 0 0 60px rgba(59,130,246,0.06);">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:20px;letter-spacing:2px;color:#3B82F6;">UI-TARS · LOCAL</span>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;">
+              <span style="width:96px;height:96px;border-radius:22px;border:1.5px solid #3B82F6;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+              <span style="font-size:28px;color:#F1F5F9;font-weight:500;text-align:center;line-height:1.3;">Your machine.<br>Data stays here.</span>
+              <span style="display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:17px;color:#3B82F6;"><span style="width:8px;height:8px;border-radius:50%;background:#3B82F6;"></span>offline-ready · air-gapped</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- ===================== SLIDE 6 — WHY IT SCALES ===================== -->
+    <sc-if value="{{ a5 }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="06 Why It Scales" style="position:absolute;inset:0;padding:92px 120px 112px;display:flex;flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:6px;color:#3B82F6;text-transform:uppercase;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;">06 — Why It Scales</span>
+        <h1 style="margin:20px 0 0;font-size:66px;font-weight:600;line-height:1.04;letter-spacing:-1.5px;color:#F1F5F9;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.06s;">One Agent. Any Software. Any Workflow.</h1>
+        <div style="display:flex;gap:56px;margin-top:40px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.14s;">
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">No custom code per application — it reads any GUI</span></div>
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">Switch from Tryton to SAP to Salesforce — same agent</span></div>
+          <div style="flex:1;display:flex;gap:15px;align-items:flex-start;"><span style="flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:#3B82F6;margin-top:13px;"></span><span style="font-size:26px;line-height:1.4;color:#94A3B8;">Any repetitive human-screen workflow becomes automatable</span></div>
+        </div>
+        <div style="flex:1;position:relative;margin-top:14px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.22s;">
+          <div style="position:relative;width:1180px;height:440px;max-width:100%;margin:0 auto;">
+            <svg viewBox="0 0 1180 440" style="position:absolute;inset:0;width:100%;height:100%;">
+              <line x1="590" y1="220" x2="180" y2="80" stroke="rgba(59,130,246,0.32)" stroke-width="2"></line>
+              <line x1="590" y1="220" x2="1000" y2="80" stroke="rgba(59,130,246,0.32)" stroke-width="2"></line>
+              <line x1="590" y1="220" x2="1060" y2="350" stroke="rgba(59,130,246,0.32)" stroke-width="2"></line>
+              <line x1="590" y1="220" x2="590" y2="404" stroke="rgba(59,130,246,0.32)" stroke-width="2"></line>
+              <line x1="590" y1="220" x2="120" y2="350" stroke="rgba(59,130,246,0.32)" stroke-width="2"></line>
+            </svg>
+            <div style="position:absolute;left:590px;top:220px;transform:translate(-50%,-50%);background:#3B82F6;border-radius:18px;padding:22px 34px;display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:0 16px 44px -12px rgba(59,130,246,0.7);"><span style="font-size:30px;font-weight:600;color:#fff;">UI-TARS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:rgba(255,255,255,0.8);">multimodal agent</span></div>
+            <div style="position:absolute;left:180px;top:80px;transform:translate(-50%,-50%);background:#11161F;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 26px;font-size:24px;color:#E2E8F0;">Tryton</div>
+            <div style="position:absolute;left:1000px;top:80px;transform:translate(-50%,-50%);background:#11161F;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 26px;font-size:24px;color:#E2E8F0;">SAP</div>
+            <div style="position:absolute;left:1060px;top:350px;transform:translate(-50%,-50%);background:#11161F;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 26px;font-size:24px;color:#E2E8F0;">Salesforce</div>
+            <div style="position:absolute;left:590px;top:404px;transform:translate(-50%,-50%);background:#11161F;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 26px;font-size:24px;color:#E2E8F0;">Excel</div>
+            <div style="position:absolute;left:120px;top:350px;transform:translate(-50%,-50%);background:#11161F;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 26px;font-size:24px;color:#E2E8F0;">Custom Internal Tools</div>
+          </div>
+          <div style="position:absolute;bottom:-4px;left:0;right:0;text-align:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:21px;color:#64748B;font-style:italic;">Same model. Zero re-integration.</span></div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- ===================== SLIDE 7 — WHAT'S NEXT ===================== -->
+    <sc-if value="{{ a6 }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="07 What's Next" style="position:absolute;inset:0;padding:92px 120px 112px;display:flex;flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:6px;color:#3B82F6;text-transform:uppercase;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;">07 — What's Next</span>
+        <h1 style="margin:20px 0 0;font-size:66px;font-weight:600;line-height:1.04;letter-spacing:-1.5px;color:#F1F5F9;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.06s;">From Proof of Concept to Production Agent</h1>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:56px;margin-top:10px;">
+          <div style="position:relative;display:flex;gap:40px;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.16s;">
+            <div style="position:absolute;left:60px;right:60px;top:13px;height:2px;background:linear-gradient(90deg,#3B82F6 0%,#3B82F6 33%,rgba(255,255,255,0.12) 33%);"></div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:18px;z-index:1;">
+              <span style="width:28px;height:28px;border-radius:50%;background:#3B82F6;box-shadow:0 0 0 6px rgba(59,130,246,0.18);"></span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:2px;color:#fff;background:#3B82F6;padding:5px 13px;border-radius:6px;align-self:flex-start;">IN PROGRESS</span>
+              <div><div style="font-size:30px;font-weight:600;color:#F1F5F9;margin-bottom:8px;">Phase 1</div><div style="font-size:25px;line-height:1.4;color:#94A3B8;">Expand task coverage within Tryton workflows</div></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:18px;z-index:1;">
+              <span style="width:28px;height:28px;border-radius:50%;background:#0D1117;border:2px solid #475569;"></span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:2px;color:#cbd5e1;background:rgba(255,255,255,0.08);padding:5px 13px;border-radius:6px;align-self:flex-start;">PLANNED</span>
+              <div><div style="font-size:30px;font-weight:600;color:#cbd5e1;margin-bottom:8px;">Phase 2</div><div style="font-size:25px;line-height:1.4;color:#64748B;">Test against a second ERP system to prove portability</div></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:18px;z-index:1;">
+              <span style="width:28px;height:28px;border-radius:50%;background:#0D1117;border:2px solid #2b3242;"></span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:2px;color:#64748B;background:rgba(255,255,255,0.04);padding:5px 13px;border-radius:6px;align-self:flex-start;">VISION</span>
+              <div><div style="font-size:30px;font-weight:600;color:#64748B;margin-bottom:8px;">Phase 3</div><div style="font-size:25px;line-height:1.4;color:#475569;">Multi-agent coordination for complex business processes</div></div>
+            </div>
+          </div>
+          <div style="text-align:center;animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:.3s;">
+            <div style="display:inline-block;height:1px;width:120px;background:rgba(255,255,255,0.12);margin-bottom:30px;"></div>
+            <div style="font-size:52px;font-weight:600;letter-spacing:-1px;color:#F1F5F9;">Ready to run the <span style="color:#3B82F6;">next demo?</span></div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- SLIDES_END -->
+  </div>
+
+  <!-- ===================== CHROME ===================== -->
+  <sc-if value="{{ showChrome }}" hint-placeholder-val="{{ true }}">
+    <button onClick="{{ prev }}" aria-label="Previous slide" style="position:fixed;left:30px;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#94A3B8;font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);z-index:10;">‹</button>
+    <button onClick="{{ next }}" aria-label="Next slide" style="position:fixed;right:30px;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#94A3B8;font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);z-index:10;">›</button>
+
+    <div style="position:fixed;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:11px;align-items:center;z-index:10;">
+      <sc-for list="{{ dots }}" as="d" hint-placeholder-count="7">
+        <button onClick="{{ d.go }}" aria-label="Go to slide" style="width:10px;height:10px;border-radius:50%;border:none;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;background: {{ d.bg }};transform: {{ d.scale }};"></button>
+      </sc-for>
+    </div>
+
+    <div style="position:fixed;bottom:30px;right:42px;font-family:'IBM Plex Mono',monospace;font-size:20px;color:#475569;z-index:10;letter-spacing:1px;"><span style="color:#94A3B8;">{{ current }}</span> / {{ total }}</div>
+
+    <button onClick="{{ toggleNotes }}" style="position:fixed;top:26px;left:26px;display:flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:1px;color:#94A3B8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:999px;padding:9px 16px;cursor:pointer;backdrop-filter:blur(6px);z-index:10;"><span style="font-size:15px;">▤</span> Script <span style="opacity:.55;">N</span></button>
+  </sc-if>
+
+  <!-- ===================== TELEPROMPTER ===================== -->
+  <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:26px;bottom:26px;width:620px;max-width:calc(100vw - 52px);background:rgba(13,17,23,0.92);border:1px solid rgba(59,130,246,0.4);border-radius:18px;padding:24px 26px;backdrop-filter:blur(14px);box-shadow:0 30px 80px -30px rgba(0,0,0,0.9);z-index:20;font-family:'Space Grotesk',sans-serif;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px;">
+        <div style="display:flex;align-items:baseline;gap:12px;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:3px;color:#3B82F6;">TELEPROMPTER</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#64748B;">slide {{ current }}/{{ total }} · {{ noteTime }}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:500;letter-spacing:1px;min-width:74px;text-align:right;color: {{ timerColor }};">{{ timerDisplay }}</span>
+          <button onClick="{{ toggleTimer }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#cbd5e1;background:rgba(59,130,246,0.16);border:1px solid rgba(59,130,246,0.4);border-radius:7px;padding:6px 11px;cursor:pointer;">{{ timerLabel }}</button>
+          <button onClick="{{ resetTimer }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#64748B;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:6px 11px;cursor:pointer;">Reset</button>
+          <button onClick="{{ toggleNotes }}" aria-label="Close" style="font-size:18px;line-height:1;color:#64748B;background:none;border:none;cursor:pointer;padding:4px 6px;">✕</button>
+        </div>
+      </div>
+      <p style="margin:0;font-size:24px;line-height:1.5;color:#E2E8F0;text-wrap:pretty;">{{ note }}</p>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);font-family:'IBM Plex Mono',monospace;font-size:12px;color:#475569;letter-spacing:0.5px;">target ≈ 2:00 total &nbsp;·&nbsp; <span style="color:#64748B;">N</span> notes &nbsp; <span style="color:#64748B;">F</span> focus &nbsp; <span style="color:#64748B;">T</span> timer &nbsp; <span style="color:#64748B;">←/→</span> slides</div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { current: 0, showNotes: false, focus: false, elapsed: 0, running: false };
+
+  NOTES = [
+    { t: '~15s', text: 'Every ERP workflow today runs on trained people clicking through menus. One wrong step breaks the process, and scaling just means hiring more operators — a single invoice can eat about eighteen minutes of expert time.' },
+    { t: '~18s', text: 'So we asked: what if AI could just use the software the way a person does? Not an integration — it sees the screen, you give it a plain-language task like “create an invoice for Acme Corp, four thousand two hundred euros,” and it executes end to end. No API, no plugin, no connector.' },
+    { t: '~20s', text: 'Under the hood it is a tight perception–action loop. UI-TARS screenshots the current screen, reasons about what is visible and what to do next, performs a click or keystroke, then captures the new state and repeats — fully local.' },
+    { t: '~30s', text: 'Let me show you live. I give it one prompt — create an invoice for this customer. Watch it open the module, navigate the menus, fill every field and confirm — zero clicks from me, start to finish in under sixty seconds. [Switch to your screen recording of the agent here.]' },
+    { t: '~15s', text: 'And it is fully private. The model runs on your own hardware — no data ever leaves the machine, no cloud subscription, no vendor lock-in. It even runs in air-gapped environments.' },
+    { t: '~12s', text: 'Because it reads any GUI, the same agent works across Tryton, SAP, Salesforce, Excel, or internal tools — with no custom code and zero re-integration.' },
+    { t: '~12s', text: 'Next we expand coverage in Tryton, then prove portability on a second ERP, toward multi-agent coordination. This is a working proof of concept today — ready to run the next demo?' }
+  ];
+
+  _restore() {
+    try { const s = parseInt(localStorage.getItem('uitars_deck_slide')); if (!isNaN(s) && s >= 0 && s < 7) return s; } catch (e) {}
+    return 0;
+  }
+  componentDidMount() {
+    this.setState({ current: this._restore() });
+    this._onKey = (e) => {
+      if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
+      if (['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)) { e.preventDefault(); this.go(1); }
+      else if (['ArrowLeft','ArrowUp','PageUp'].includes(e.key)) { e.preventDefault(); this.go(-1); }
+      else if (e.key === 'n' || e.key === 'N') { e.preventDefault(); this.setState(s => ({ showNotes: !s.showNotes })); }
+      else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); this.setState(s => ({ focus: !s.focus })); }
+      else if (e.key === 't' || e.key === 'T') { e.preventDefault(); this.toggleTimer(); }
+      else if (e.key === 'r' || e.key === 'R') { e.preventDefault(); this.resetTimer(); }
+    };
+    this._fit = () => this.fit();
+    window.addEventListener('keydown', this._onKey);
+    window.addEventListener('resize', this._fit);
+    this.fit();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this._onKey);
+    window.removeEventListener('resize', this._fit);
+    if (this._timer) clearInterval(this._timer);
+  }
+  toggleTimer() {
+    if (this.state.running) {
+      clearInterval(this._timer); this._timer = null;
+      this.setState({ running: false });
+    } else {
+      this.setState({ running: true });
+      this._timer = setInterval(() => this.setState(s => ({ elapsed: s.elapsed + 1 })), 1000);
+    }
+  }
+  resetTimer() {
+    clearInterval(this._timer); this._timer = null;
+    this.setState({ running: false, elapsed: 0 });
+  }
+  componentDidUpdate() { this.fit(); }
+  fit() {
+    if (this._board) {
+      const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+      this._board.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+    }
+  }
+  go(d) {
+    this.setState((st) => {
+      const n = Math.max(0, Math.min(6, st.current + d));
+      try { localStorage.setItem('uitars_deck_slide', n); } catch (e) {}
+      return { current: n };
+    });
+  }
+  goTo(i) {
+    try { localStorage.setItem('uitars_deck_slide', i); } catch (e) {}
+    this.setState({ current: i });
+  }
+  renderVals() {
+    const c = this.state.current;
+    const e = this.state.elapsed;
+    const mm = String(Math.floor(e / 60)).padStart(2, '0');
+    const ss = String(e % 60).padStart(2, '0');
+    const timerColor = e >= 120 ? '#F87171' : (e >= 105 ? '#FBBF24' : '#3B82F6');
+    const out = {
+      boardRef: (el) => { this._board = el; if (el) this.fit(); },
+      current: c + 1,
+      total: 7,
+      next: () => this.go(1),
+      prev: () => this.go(-1),
+      showChrome: !this.state.focus,
+      showNotes: this.state.showNotes,
+      toggleNotes: () => this.setState(s => ({ showNotes: !s.showNotes })),
+      note: this.NOTES[c] ? this.NOTES[c].text : '',
+      noteTime: this.NOTES[c] ? this.NOTES[c].t : '',
+      timerDisplay: mm + ':' + ss,
+      timerColor: timerColor,
+      timerLabel: this.state.running ? 'Pause' : 'Start',
+      toggleTimer: () => this.toggleTimer(),
+      resetTimer: () => this.resetTimer(),
+    };
+    for (let i = 0; i < 7; i++) out['a' + i] = c === i;
+    out.dots = [];
+    for (let i = 0; i < 7; i++) {
+      out.dots.push({
+        bg: c === i ? '#3B82F6' : 'rgba(255,255,255,0.20)',
+        scale: c === i ? 'scale(1.25)' : 'scale(1)',
+        go: () => this.goTo(i),
+      });
+    }
+    return out;
+  }
+}
+</script>
+<script>
+(async () => {
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  @page { margin: 0.5cm; }\n  html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }\n  section, article, figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>

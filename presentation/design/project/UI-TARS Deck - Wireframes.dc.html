@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{background:#e9e7e1;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+    a{color:inherit;}
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:#e9e7e1;color:#23211d;font-family:'Patrick Hand',cursive;padding-bottom:90px;">
+
+  <!-- ===== STICKY NAV ===== -->
+  <div style="position:sticky;top:0;z-index:30;background:rgba(233,231,225,0.92);backdrop-filter:blur(6px);border-bottom:2.5px solid #23211d;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <div style="display:flex;flex-direction:column;line-height:1;">
+      <span style="font-size:26px;">UI-TARS ERP Agent</span>
+      <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#6b6862;margin-top:4px;">Wireframes · 7-slide demo deck · low-fi</span>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;">
+      <a href="#story" style="text-decoration:none;border:2px solid #23211d;border-radius:8px;padding:5px 9px;background:#fcfbf8;">FLOW</a>
+      <a href="#s1" style="text-decoration:none;border:2px solid #23211d;border-radius:8px;padding:5px 9px;background:#fcfbf8;">01</a>
+      <a href="#s2" style="text-decoration:none;border:2px solid #23211d;border-radius:8px;padding:5px 9px;background:#fcfbf8;">02</a>
+      <a href="#s3" style="text-decoration:none;border:2px solid #23211d;border-radius:8px;padding:5px 9px;background:#fcfbf8;">03</a>
+      <a href="#s4" style="text-decoration:none;border:2px solid #23211d;border-radius:8px;padding:5px 9px;background:#fcfbf8;">04</a>
+      <a href="#s5" style="text-decoration:none;border:2px solid #23211d;border-radius:8px;padding:5px 9px;background:#fcfbf8;">05</a>
+      <a href="#s6" style="text-decoration:none;border:2px solid #23211d;border-radius:8px;padding:5px 9px;background:#fcfbf8;">06</a>
+      <a href="#s7" style="text-decoration:none;border:2px solid #23211d;border-radius:8px;padding:5px 9px;background:#fcfbf8;">07</a>
+    </div>
+  </div>
+
+  <div style="max-width:1180px;margin:0 auto;padding:34px 28px 0;">
+
+    <!-- legend -->
+    <div style="display:flex;gap:18px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:10px;color:#6b6862;letter-spacing:0.5px;margin-bottom:30px;">
+      <span style="display:flex;align-items:center;gap:7px;"><span style="width:18px;height:13px;border:2px dashed #a8a399;display:inline-block;"></span>image placeholder</span>
+      <span style="display:flex;align-items:center;gap:7px;"><span style="width:14px;height:14px;border:2px dashed #3B82F6;border-radius:50%;display:inline-block;"></span>icon TBD</span>
+      <span style="display:flex;align-items:center;gap:7px;"><span style="width:14px;height:14px;background:#3B82F6;border-radius:3px;display:inline-block;"></span>brand accent</span>
+      <span style="display:flex;align-items:center;gap:7px;"><span style="width:14px;height:14px;background:#d1453b;border-radius:3px;display:inline-block;"></span>cost / risk callout</span>
+    </div>
+
+    <!-- ============ STORYBOARD STRIP ============ -->
+    <section id="story" style="animation:fadeUp .5s ease both;margin-bottom:54px;scroll-margin-top:90px;">
+      <div style="margin-bottom:7px;line-height:1.25;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;background:#23211d;color:#f6f4ef;padding:3px 8px;border-radius:5px;margin-right:12px;white-space:nowrap;">FLOW</span>
+        <span style="font-size:24px;">Narrative storyboard — how the 7 slides read</span>
+      </div>
+      <p style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin:0 0 18px;">Problem → Insight → How it works → Proof → Trust → Scale → Future. Click any frame to jump.</p>
+
+      <div style="display:flex;gap:0;overflow-x:auto;padding-bottom:14px;align-items:stretch;">
+        <a href="#s1" style="text-decoration:none;flex:0 0 162px;background:#fcfbf8;border:2.5px solid #23211d;border-radius:9px;box-shadow:3px 3px 0 rgba(0,0,0,.1);padding:11px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'Space Mono',monospace;font-size:10px;background:#23211d;color:#f6f4ef;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:16px;">Problem</span></div>
+          <div style="display:flex;gap:5px;height:46px;"><div style="flex:1;border:2px solid #c8c4bb;border-radius:4px;"></div><div style="flex:1;border:2px solid #d1453b;border-radius:4px;background:rgba(209,69,59,.08);"></div></div>
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">split contrast</span>
+        </a>
+        <div style="display:flex;align-items:center;padding:0 6px;font-family:'Space Mono',monospace;font-size:18px;color:#8a867d;">→</div>
+        <a href="#s2" style="text-decoration:none;flex:0 0 162px;background:#fcfbf8;border:2.5px solid #23211d;border-radius:9px;box-shadow:3px 3px 0 rgba(0,0,0,.1);padding:11px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'Space Mono',monospace;font-size:10px;background:#23211d;color:#f6f4ef;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:16px;">Insight</span></div>
+          <div style="display:flex;gap:4px;align-items:center;height:46px;"><div style="flex:1;border:2px solid #c8c4bb;border-radius:4px;height:100%;"></div><span style="font-size:13px;color:#3B82F6;">→</span><div style="flex:1;border:2px solid #3B82F6;border-radius:4px;height:100%;"></div></div>
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">prompt → exec</span>
+        </a>
+        <div style="display:flex;align-items:center;padding:0 6px;font-family:'Space Mono',monospace;font-size:18px;color:#8a867d;">→</div>
+        <a href="#s3" style="text-decoration:none;flex:0 0 162px;background:#fcfbf8;border:2.5px solid #23211d;border-radius:9px;box-shadow:3px 3px 0 rgba(0,0,0,.1);padding:11px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'Space Mono',monospace;font-size:10px;background:#23211d;color:#f6f4ef;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:16px;">Architecture</span></div>
+          <div style="display:flex;gap:4px;align-items:center;justify-content:center;height:46px;"><span style="width:12px;height:12px;border:2px solid #23211d;border-radius:50%;"></span><span style="font-size:11px;color:#8a867d;">→</span><span style="width:12px;height:12px;border:2px solid #3B82F6;border-radius:50%;"></span><span style="font-size:11px;color:#8a867d;">→</span><span style="width:12px;height:12px;border:2px solid #23211d;border-radius:50%;"></span><span style="font-size:11px;color:#8a867d;">↺</span></div>
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">see·think·act loop</span>
+        </a>
+        <div style="display:flex;align-items:center;padding:0 6px;font-family:'Space Mono',monospace;font-size:18px;color:#8a867d;">→</div>
+        <a href="#s4" style="text-decoration:none;flex:0 0 162px;background:#fcfbf8;border:2.5px solid #23211d;border-radius:9px;box-shadow:3px 3px 0 rgba(0,0,0,.1);padding:11px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'Space Mono',monospace;font-size:10px;background:#23211d;color:#f6f4ef;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:16px;">Demo</span></div>
+          <div style="display:flex;gap:5px;height:46px;"><div style="flex:0 0 16px;border-left:2px dashed #23211d;"></div><div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:3px;"><div style="border:2px solid #3B82F6;border-radius:3px;"></div><div style="border:2px solid #3B82F6;border-radius:3px;"></div><div style="border:2px solid #3B82F6;border-radius:3px;"></div><div style="border:2px solid #3B82F6;border-radius:3px;"></div></div></div>
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">steps + shots</span>
+        </a>
+        <div style="display:flex;align-items:center;padding:0 6px;font-family:'Space Mono',monospace;font-size:18px;color:#8a867d;">→</div>
+        <a href="#s5" style="text-decoration:none;flex:0 0 162px;background:#fcfbf8;border:2.5px solid #23211d;border-radius:9px;box-shadow:3px 3px 0 rgba(0,0,0,.1);padding:11px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'Space Mono',monospace;font-size:10px;background:#23211d;color:#f6f4ef;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:16px;">Why Local</span></div>
+          <div style="display:flex;gap:5px;height:46px;"><div style="flex:1;border:2px dashed #d1453b;border-radius:4px;background:rgba(209,69,59,.07);"></div><div style="flex:1;border:2px solid #3B82F6;border-radius:4px;background:rgba(59,130,246,.07);"></div></div>
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">cloud vs local</span>
+        </a>
+        <div style="display:flex;align-items:center;padding:0 6px;font-family:'Space Mono',monospace;font-size:18px;color:#8a867d;">→</div>
+        <a href="#s6" style="text-decoration:none;flex:0 0 162px;background:#fcfbf8;border:2.5px solid #23211d;border-radius:9px;box-shadow:3px 3px 0 rgba(0,0,0,.1);padding:11px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'Space Mono',monospace;font-size:10px;background:#23211d;color:#f6f4ef;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;">6</span><span style="font-size:16px;">Scale</span></div>
+          <div style="position:relative;height:46px;"><span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;background:#3B82F6;border-radius:50%;"></span><span style="position:absolute;left:6px;top:4px;width:9px;height:9px;border:2px solid #c8c4bb;border-radius:2px;"></span><span style="position:absolute;right:6px;top:4px;width:9px;height:9px;border:2px solid #c8c4bb;border-radius:2px;"></span><span style="position:absolute;left:6px;bottom:4px;width:9px;height:9px;border:2px solid #c8c4bb;border-radius:2px;"></span><span style="position:absolute;right:6px;bottom:4px;width:9px;height:9px;border:2px solid #c8c4bb;border-radius:2px;"></span></div>
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">hub &amp; spoke</span>
+        </a>
+        <div style="display:flex;align-items:center;padding:0 6px;font-family:'Space Mono',monospace;font-size:18px;color:#8a867d;">→</div>
+        <a href="#s7" style="text-decoration:none;flex:0 0 162px;background:#fcfbf8;border:2.5px solid #23211d;border-radius:9px;box-shadow:3px 3px 0 rgba(0,0,0,.1);padding:11px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'Space Mono',monospace;font-size:10px;background:#23211d;color:#f6f4ef;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;">7</span><span style="font-size:16px;">Next</span></div>
+          <div style="display:flex;align-items:center;height:46px;gap:0;"><span style="width:11px;height:11px;background:#3B82F6;border-radius:50%;"></span><span style="flex:1;height:2px;background:#c8c4bb;"></span><span style="width:11px;height:11px;border:2px solid #c8c4bb;border-radius:50%;"></span><span style="flex:1;height:2px;background:#c8c4bb;"></span><span style="width:11px;height:11px;border:2px solid #d8d4cb;border-radius:50%;"></span></div>
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">3-phase roadmap</span>
+        </a>
+      </div>
+    </section>
+    <!-- ============ SLIDE 01 ============ -->
+    <section id="s1" style="animation:fadeUp .5s ease both;margin-bottom:52px;scroll-margin-top:90px;">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;background:#23211d;color:#f6f4ef;padding:3px 8px;border-radius:5px;">SLIDE 01</span>
+        <span style="font-size:24px;">Problem</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;">the pain — ERP needs trained operators</span>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+
+        <!-- A: two-column contrast -->
+        <figure style="margin:0;flex:1 1 540px;max-width:740px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:26px 30px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">01 · PROBLEM</span>
+            <h2 style="margin:3px 0 0;font-weight:400;font-size:28px;line-height:1.04;color:#1a1a1a;">ERP Systems Demand Expert Human Operation</h2>
+            <div style="display:flex;gap:20px;flex:1;margin-top:13px;min-height:0;">
+              <div style="flex:0 0 34%;display:flex;flex-direction:column;gap:11px;">
+                <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:15px;color:#4a4843;line-height:1.15;">Every workflow needs trained staff clicking through menus</span></div>
+                <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:15px;color:#4a4843;line-height:1.15;">One wrong step breaks the process — errors are costly</span></div>
+                <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:15px;color:#4a4843;line-height:1.15;">Scaling operations means hiring more operators</span></div>
+              </div>
+              <div style="flex:1;display:flex;gap:12px;min-height:0;">
+                <div style="flex:1;border:2px solid #c8c4bb;border-radius:8px;padding:9px;display:flex;flex-direction:column;gap:7px;background:#fff;">
+                  <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;letter-spacing:1px;">MANUAL</span>
+                  <div style="border:2px dashed #a8a399;border-radius:6px;background:repeating-linear-gradient(45deg,#ece9e2 0 8px,#f6f4ef 8px 16px);flex:0 0 42px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;text-align:center;">[ operator at screen ]</div>
+                  <div style="display:flex;flex-direction:column;gap:6px;">
+                    <div style="display:flex;align-items:center;gap:6px;"><span style="width:11px;height:11px;border:2px solid #9a968d;border-radius:3px;"></span><span style="flex:1;height:6px;background:#ddd9d1;border-radius:3px;"></span></div>
+                    <div style="display:flex;align-items:center;gap:6px;"><span style="width:11px;height:11px;border:2px solid #9a968d;border-radius:3px;"></span><span style="flex:1;height:6px;background:#ddd9d1;border-radius:3px;"></span></div>
+                    <div style="display:flex;align-items:center;gap:6px;"><span style="width:11px;height:11px;border:2px solid #9a968d;border-radius:3px;"></span><span style="flex:1;height:6px;background:#ddd9d1;border-radius:3px;"></span></div>
+                    <div style="display:flex;align-items:center;gap:6px;"><span style="width:11px;height:11px;border:2px solid #9a968d;border-radius:3px;"></span><span style="flex:1;height:6px;background:#ddd9d1;border-radius:3px;"></span></div>
+                  </div>
+                </div>
+                <div style="position:relative;flex:1;border:2px solid #d1453b;border-radius:8px;padding:9px;display:flex;flex-direction:column;gap:7px;background:rgba(209,69,59,.05);">
+                  <span style="position:absolute;top:-10px;right:8px;transform:rotate(3deg);font-family:'Space Mono',monospace;font-size:9px;background:#d1453b;color:#fff;padding:3px 7px;border-radius:5px;box-shadow:1px 1px 0 rgba(0,0,0,.18);">TIME COST</span>
+                  <span style="font-family:'Space Mono',monospace;font-size:9px;color:#d1453b;letter-spacing:1px;">SAME STEPS</span>
+                  <div style="border:2px dashed #d1453b;border-radius:6px;flex:0 0 42px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#d1453b;text-align:center;background:rgba(209,69,59,.04);">[ checklist + clock ]</div>
+                  <div style="display:flex;flex-direction:column;gap:6px;">
+                    <div style="display:flex;align-items:center;gap:6px;"><span style="width:11px;height:11px;border:2px solid #d1453b;border-radius:3px;"></span><span style="flex:1;height:6px;background:#e8c4bf;border-radius:3px;"></span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#d1453b;">+6m</span></div>
+                    <div style="display:flex;align-items:center;gap:6px;"><span style="width:11px;height:11px;border:2px solid #d1453b;border-radius:3px;"></span><span style="flex:1;height:6px;background:#e8c4bf;border-radius:3px;"></span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#d1453b;">+4m</span></div>
+                    <div style="display:flex;align-items:center;gap:6px;"><span style="width:11px;height:11px;border:2px solid #d1453b;border-radius:3px;"></span><span style="flex:1;height:6px;background:#e8c4bf;border-radius:3px;"></span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#d1453b;">+9m</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">01 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout A — two-column contrast &nbsp;<span style="color:#3B82F6;">★ recommended</span></figcaption>
+        </figure>
+
+        <!-- B: cost-accumulation strip -->
+        <figure style="margin:0;flex:1 1 320px;max-width:400px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:24px 26px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">01 · PROBLEM</span>
+            <h2 style="margin:3px 0 0;font-weight:400;font-size:23px;line-height:1.04;color:#1a1a1a;">ERP Demands Expert Human Operation</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;flex:1;justify-content:center;">
+              <div style="display:flex;gap:6px;">
+                <div style="flex:1;border:2px solid #c8c4bb;border-radius:5px;height:34px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">step</div>
+                <span style="align-self:center;color:#8a867d;">→</span>
+                <div style="flex:1;border:2px solid #c8c4bb;border-radius:5px;height:34px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">step</div>
+                <span style="align-self:center;color:#8a867d;">→</span>
+                <div style="flex:1;border:2px solid #c8c4bb;border-radius:5px;height:34px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">step</div>
+                <span style="align-self:center;color:#8a867d;">→</span>
+                <div style="flex:1;border:2px solid #c8c4bb;border-radius:5px;height:34px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;">step</div>
+              </div>
+              <div>
+                <div style="height:12px;background:linear-gradient(90deg,rgba(209,69,59,.25),#d1453b);border-radius:6px;"></div>
+                <span style="font-family:'Space Mono',monospace;font-size:9px;color:#d1453b;">▲ time cost grows with every step</span>
+              </div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">01 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout B — cost-accumulation strip</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 02 ============ -->
+    <section id="s2" style="animation:fadeUp .5s ease both;margin-bottom:52px;scroll-margin-top:90px;">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;background:#23211d;color:#f6f4ef;padding:3px 8px;border-radius:5px;">SLIDE 02</span>
+        <span style="font-size:24px;">Insight</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;">the turn — AI just uses the software</span>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+        <figure style="margin:0;flex:1 1 620px;max-width:840px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:26px 32px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">02 · INSIGHT</span>
+            <h2 style="margin:3px 0 0;font-weight:400;font-size:28px;line-height:1.04;color:#1a1a1a;">What If AI Could Just… Use the Software?</h2>
+            <div style="display:flex;gap:18px;margin:11px 0 6px;flex-wrap:wrap;">
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">Not an integration — it sees the screen like you do</span></div>
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">Give it a task in plain language, it executes end-to-end</span></div>
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">No API, no plugin, no custom connector needed</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;flex:1;min-height:0;">
+              <div style="flex:1 1 32%;border:2px solid #23211d;border-radius:14px 14px 14px 4px;background:#fff;padding:12px;display:flex;flex-direction:column;gap:7px;box-shadow:2px 2px 0 rgba(0,0,0,.08);">
+                <span style="font-family:'Space Mono',monospace;font-size:9px;color:#8a867d;letter-spacing:1px;">NATURAL-LANGUAGE PROMPT</span>
+                <span style="font-size:17px;color:#1a1a1a;line-height:1.15;">"Create an invoice for Acme Corp, €4,200"</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:5px;flex:0 0 auto;">
+                <span style="font-family:'Space Mono',monospace;font-size:10px;background:#3B82F6;color:#fff;padding:4px 9px;border-radius:6px;">UI-TARS</span>
+                <span style="font-size:26px;color:#3B82F6;line-height:1;">→</span>
+              </div>
+              <div style="flex:1 1 40%;border:2px solid #23211d;border-radius:8px;background:#fff;overflow:hidden;box-shadow:2px 2px 0 rgba(0,0,0,.08);">
+                <div style="display:flex;align-items:center;gap:5px;padding:6px 8px;border-bottom:2px solid #e2ded5;background:#f4f1ea;"><span style="width:8px;height:8px;border-radius:50%;background:#d1453b;"></span><span style="width:8px;height:8px;border-radius:50%;background:#e0bf52;"></span><span style="width:8px;height:8px;border-radius:50%;background:#9cbf6a;"></span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#8a867d;margin-left:4px;">ERP — Invoices</span></div>
+                <div style="padding:9px;display:flex;flex-direction:column;gap:7px;">
+                  <div style="display:flex;gap:6px;align-items:center;"><span style="flex:0 0 38px;height:6px;background:#d6d2c9;border-radius:3px;"></span><span style="flex:1;height:14px;border:1.5px solid #c8c4bb;border-radius:3px;"></span></div>
+                  <div style="display:flex;gap:6px;align-items:center;"><span style="flex:0 0 38px;height:6px;background:#d6d2c9;border-radius:3px;"></span><span style="flex:1;height:14px;border:1.5px solid #3B82F6;border-radius:3px;background:rgba(59,130,246,.1);"></span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#3B82F6;">typing…</span></div>
+                  <div style="display:flex;gap:6px;align-items:center;"><span style="flex:0 0 38px;height:6px;background:#d6d2c9;border-radius:3px;"></span><span style="flex:1;height:14px;border:1.5px solid #c8c4bb;border-radius:3px;"></span></div>
+                </div>
+              </div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">02 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout A — prompt → UI-TARS → live ERP screen</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 03 ============ -->
+    <section id="s3" style="animation:fadeUp .5s ease both;margin-bottom:52px;scroll-margin-top:90px;">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;background:#23211d;color:#f6f4ef;padding:3px 8px;border-radius:5px;">SLIDE 03</span>
+        <span style="font-size:24px;">Architecture</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;">how it works — See. Think. Act. Repeat.</span>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+
+        <!-- A: horizontal loop -->
+        <figure style="margin:0;flex:1 1 560px;max-width:760px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:26px 30px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">03 · ARCHITECTURE</span>
+            <h2 style="margin:3px 0 0;font-weight:400;font-size:28px;line-height:1.04;color:#1a1a1a;">See. Think. Act. Repeat.</h2>
+            <div style="display:flex;gap:18px;margin:10px 0 8px;flex-wrap:wrap;">
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">Screenshot captures current UI state in real time</span></div>
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">UI-TARS reasons: what is visible, what action is needed</span></div>
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">Agent executes click / keystroke — then loops again</span></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
+                <div style="flex:1;border:2px solid #23211d;border-radius:12px;background:#fff;padding:9px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:2px 2px 0 rgba(0,0,0,.1);"><span style="width:26px;height:26px;border:2px dashed #3B82F6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:8px;color:#3B82F6;">CAM</span><span style="font-size:14px;">Screenshot</span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#8a867d;">capture state</span></div>
+                <span style="font-size:20px;color:#23211d;">→</span>
+                <div style="flex:1;border:2px solid #23211d;border-radius:12px;background:#fff;padding:9px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:2px 2px 0 rgba(0,0,0,.1);"><span style="width:26px;height:26px;border:2px dashed #3B82F6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:8px;color:#3B82F6;">AI</span><span style="font-size:14px;text-align:center;line-height:1;">UI-TARS<br>Reasoning</span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#8a867d;">what action?</span></div>
+                <span style="font-size:20px;color:#23211d;">→</span>
+                <div style="flex:1;border:2px solid #23211d;border-radius:12px;background:#fff;padding:9px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:2px 2px 0 rgba(0,0,0,.1);"><span style="width:26px;height:26px;border:2px dashed #3B82F6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:8px;color:#3B82F6;">CLK</span><span style="font-size:14px;text-align:center;line-height:1;">Action:<br>Click / Type</span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#8a867d;">execute input</span></div>
+                <span style="font-size:20px;color:#23211d;">→</span>
+                <div style="flex:1;border:2px solid #23211d;border-radius:12px;background:#fff;padding:9px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:2px 2px 0 rgba(0,0,0,.1);"><span style="width:26px;height:26px;border:2px dashed #3B82F6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:8px;color:#3B82F6;">↻</span><span style="font-size:14px;">New State</span><span style="font-family:'Space Mono',monospace;font-size:8px;color:#8a867d;">UI updates</span></div>
+              </div>
+              <div style="position:relative;height:38px;margin-top:6px;">
+                <div style="position:absolute;left:11%;right:11%;top:14px;border-bottom:2px dashed #23211d;"></div>
+                <div style="position:absolute;left:11%;top:8px;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-right:8px solid #23211d;"></div>
+                <span style="position:absolute;left:50%;top:0;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:10px;color:#3B82F6;background:#fcfbf8;padding:0 8px;">↺ continuous perception–action cycle</span>
+              </div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">03 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout A — horizontal loop &nbsp;<span style="color:#3B82F6;">★ recommended</span></figcaption>
+        </figure>
+
+        <!-- B: vertical loop -->
+        <figure style="margin:0;flex:1 1 300px;max-width:380px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:22px 24px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">03 · ARCHITECTURE</span>
+            <h2 style="margin:3px 0 6px;font-weight:400;font-size:21px;line-height:1.04;color:#1a1a1a;">See. Think. Act. Repeat.</h2>
+            <div style="flex:1;display:flex;gap:10px;min-height:0;">
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="border:2px solid #23211d;border-radius:9px;background:#fff;padding:5px 8px;font-size:12px;display:flex;align-items:center;gap:6px;"><span style="width:16px;height:16px;border:2px dashed #3B82F6;border-radius:50%;flex:0 0 auto;"></span>Screenshot</div>
+                <span style="text-align:center;color:#23211d;font-size:14px;">↓</span>
+                <div style="border:2px solid #23211d;border-radius:9px;background:#fff;padding:5px 8px;font-size:12px;display:flex;align-items:center;gap:6px;"><span style="width:16px;height:16px;border:2px dashed #3B82F6;border-radius:50%;flex:0 0 auto;"></span>Reasoning</div>
+                <span style="text-align:center;color:#23211d;font-size:14px;">↓</span>
+                <div style="border:2px solid #23211d;border-radius:9px;background:#fff;padding:5px 8px;font-size:12px;display:flex;align-items:center;gap:6px;"><span style="width:16px;height:16px;border:2px dashed #3B82F6;border-radius:50%;flex:0 0 auto;"></span>Click / Type</div>
+                <span style="text-align:center;color:#23211d;font-size:14px;">↓</span>
+                <div style="border:2px solid #23211d;border-radius:9px;background:#fff;padding:5px 8px;font-size:12px;display:flex;align-items:center;gap:6px;"><span style="width:16px;height:16px;border:2px dashed #3B82F6;border-radius:50%;flex:0 0 auto;"></span>New State</div>
+              </div>
+              <div style="flex:0 0 26px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:2px dashed #3B82F6;border-top:2px dashed #3B82F6;border-bottom:2px dashed #3B82F6;border-radius:0 14px 14px 0;margin:14px 0;"><span style="font-size:11px;color:#3B82F6;writing-mode:vertical-rl;font-family:'Space Mono',monospace;">loop ↺</span></div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">03 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout B — vertical loop</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 04 ============ -->
+    <section id="s4" style="animation:fadeUp .5s ease both;margin-bottom:52px;scroll-margin-top:90px;">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;background:#23211d;color:#f6f4ef;padding:3px 8px;border-radius:5px;">SLIDE 04</span>
+        <span style="font-size:24px;">Demo Walkthrough</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;">the proof — invoice end-to-end, autonomously</span>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+        <figure style="margin:0;flex:1 1 620px;max-width:840px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:26px 30px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">04 · DEMO</span>
+            <h2 style="margin:3px 0 0;font-weight:400;font-size:27px;line-height:1.04;color:#1a1a1a;">Live: Invoice Created End-to-End, Autonomously</h2>
+            <div style="display:flex;gap:22px;flex:1;margin-top:13px;min-height:0;">
+              <div style="flex:0 0 40%;display:flex;flex-direction:column;justify-content:center;gap:0;position:relative;">
+                <div style="position:absolute;left:13px;top:18px;bottom:18px;border-left:2px dashed #c8c4bb;"></div>
+                <div style="display:flex;gap:11px;align-items:center;padding:6px 0;position:relative;"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:#3B82F6;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:13px;z-index:1;">1</span><span style="font-size:16px;color:#1a1a1a;">Prompt received</span></div>
+                <div style="display:flex;gap:11px;align-items:center;padding:6px 0;position:relative;"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:50%;border:2px solid #23211d;background:#fcfbf8;color:#23211d;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:13px;z-index:1;">2</span><span style="font-size:16px;color:#1a1a1a;">Menu navigated</span></div>
+                <div style="display:flex;gap:11px;align-items:center;padding:6px 0;position:relative;"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:50%;border:2px solid #23211d;background:#fcfbf8;color:#23211d;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:13px;z-index:1;">3</span><span style="font-size:16px;color:#1a1a1a;">Fields filled</span></div>
+                <div style="display:flex;gap:11px;align-items:center;padding:6px 0;position:relative;"><span style="flex:0 0 28px;width:28px;height:28px;border-radius:50%;border:2px solid #23211d;background:#fcfbf8;color:#23211d;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:13px;z-index:1;">4</span><span style="font-size:16px;color:#1a1a1a;">Invoice confirmed</span></div>
+              </div>
+              <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;min-height:0;">
+                <div style="border:2px solid rgba(59,130,246,.55);border-radius:7px;background:repeating-linear-gradient(45deg,#eef3fb 0 9px,#f7f9fd 9px 18px);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#5a86c4;text-align:center;">[ Screenshot: Step 1 ]</div>
+                <div style="border:2px solid rgba(59,130,246,.55);border-radius:7px;background:repeating-linear-gradient(45deg,#eef3fb 0 9px,#f7f9fd 9px 18px);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#5a86c4;text-align:center;">[ Screenshot: Step 2 ]</div>
+                <div style="border:2px solid rgba(59,130,246,.55);border-radius:7px;background:repeating-linear-gradient(45deg,#eef3fb 0 9px,#f7f9fd 9px 18px);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#5a86c4;text-align:center;">[ Screenshot: Step 3 ]</div>
+                <div style="border:2px solid rgba(59,130,246,.55);border-radius:7px;background:repeating-linear-gradient(45deg,#eef3fb 0 9px,#f7f9fd 9px 18px);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#5a86c4;text-align:center;">[ Screenshot: Step 4 ]</div>
+              </div>
+            </div>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;color:#3B82F6;margin-top:8px;">⏱ full workflow completed in under 60 seconds — zero clicks from us</span>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">04 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout A — numbered steps (left) + screenshot grid (right) &nbsp;<span style="color:#8a867d;">drop real captures into the blue frames</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 05 ============ -->
+    <section id="s5" style="animation:fadeUp .5s ease both;margin-bottom:52px;scroll-margin-top:90px;">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;background:#23211d;color:#f6f4ef;padding:3px 8px;border-radius:5px;">SLIDE 05</span>
+        <span style="font-size:24px;">Why Local</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;">the trust — runs on your hardware</span>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+
+        <!-- A: left/right split -->
+        <figure style="margin:0;flex:1 1 560px;max-width:760px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:26px 30px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">05 · WHY LOCAL</span>
+            <h2 style="margin:3px 0 0;font-weight:400;font-size:28px;line-height:1.04;color:#1a1a1a;">Fully Private. Runs on Your Hardware.</h2>
+            <div style="display:flex;gap:18px;margin:9px 0 8px;flex-wrap:wrap;">
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">No data leaves your machine — ever</span></div>
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">No cloud subscription, API key, or vendor lock-in</span></div>
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">Works offline — air-gapped environments supported</span></div>
+            </div>
+            <div style="flex:1;display:flex;gap:14px;min-height:0;">
+              <div style="flex:1;border:2px dashed #d1453b;border-radius:9px;background:rgba(209,69,59,.05);padding:11px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;">
+                <span style="font-family:'Space Mono',monospace;font-size:10px;color:#d1453b;letter-spacing:1px;align-self:flex-start;">CLOUD AI</span>
+                <div style="border:2px dashed #d1453b;border-radius:14px;padding:6px 16px;font-size:13px;color:#d1453b;background:rgba(209,69,59,.06);">☁ cloud</div>
+                <span style="color:#d1453b;font-size:18px;">↑</span>
+                <span style="font-family:'Space Mono',monospace;font-size:9px;color:#d1453b;text-align:center;">your data travels here</span>
+                <div style="border:2px solid #d1453b;border-radius:8px;padding:6px 14px;font-size:12px;color:#23211d;background:#fff;">your machine</div>
+              </div>
+              <div style="flex:1;border:2px solid #3B82F6;border-radius:9px;background:rgba(59,130,246,.05);padding:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:inset 0 0 0 4px rgba(59,130,246,.06);">
+                <span style="font-family:'Space Mono',monospace;font-size:10px;color:#3B82F6;letter-spacing:1px;align-self:flex-start;">UI-TARS LOCAL</span>
+                <span style="width:42px;height:42px;border:2px solid #3B82F6;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#3B82F6;background:#fff;">🔒</span>
+                <span style="font-family:'Space Mono',monospace;font-size:10px;color:#3B82F6;text-align:center;line-height:1.3;">your machine.<br>data stays here.</span>
+              </div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">05 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout A — side-by-side cloud vs local &nbsp;<span style="color:#3B82F6;">★ recommended</span></figcaption>
+        </figure>
+
+        <!-- B: stacked boundary emphasis -->
+        <figure style="margin:0;flex:1 1 300px;max-width:380px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:22px 24px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">05 · WHY LOCAL</span>
+            <h2 style="margin:3px 0 8px;font-weight:400;font-size:21px;line-height:1.04;color:#1a1a1a;">Runs on Your Hardware</h2>
+            <div style="flex:1;display:flex;flex-direction:column;gap:8px;min-height:0;">
+              <div style="flex:0 0 auto;border:2px dashed #d1453b;border-radius:8px;background:rgba(209,69,59,.05);padding:7px;display:flex;align-items:center;justify-content:space-between;"><span style="font-family:'Space Mono',monospace;font-size:9px;color:#d1453b;">CLOUD: data leaves ↑</span><span style="font-size:13px;color:#d1453b;">☁</span></div>
+              <div style="flex:1;border:3px solid #3B82F6;border-radius:10px;background:rgba(59,130,246,.05);padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+                <span style="font-family:'Space Mono',monospace;font-size:9px;color:#3B82F6;letter-spacing:1px;">YOUR MACHINE — BOUNDARY</span>
+                <span style="width:36px;height:36px;border:2px solid #3B82F6;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;background:#fff;">🔒</span>
+                <span style="font-family:'Space Mono',monospace;font-size:9px;color:#3B82F6;">data stays here</span>
+              </div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">05 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout B — stacked, boundary-first</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 06 ============ -->
+    <section id="s6" style="animation:fadeUp .5s ease both;margin-bottom:52px;scroll-margin-top:90px;">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;background:#23211d;color:#f6f4ef;padding:3px 8px;border-radius:5px;">SLIDE 06</span>
+        <span style="font-size:24px;">Why It Scales</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;">the reach — one agent, any software</span>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+
+        <!-- A: hub and spoke -->
+        <figure style="margin:0;flex:1 1 560px;max-width:760px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:26px 30px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">06 · WHY IT SCALES</span>
+            <h2 style="margin:3px 0 0;font-weight:400;font-size:28px;line-height:1.04;color:#1a1a1a;">One Agent. Any Software. Any Workflow.</h2>
+            <div style="display:flex;gap:18px;margin:9px 0 4px;flex-wrap:wrap;">
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">No custom code per app — it reads any GUI</span></div>
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">Tryton → SAP → Salesforce — same agent</span></div>
+              <div style="display:flex;gap:7px;align-items:flex-start;flex:1 1 28%;"><span style="color:#8a867d;font-size:15px;line-height:1;">—</span><span style="font-size:14px;color:#4a4843;line-height:1.15;">Any repetitive human-screen workflow is automatable</span></div>
+            </div>
+            <div style="flex:1;position:relative;min-height:0;">
+              <svg viewBox="0 0 600 230" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;">
+                <line x1="50%" y1="50%" x2="14%" y2="20%" stroke="#c8c4bb" stroke-width="2"></line>
+                <line x1="50%" y1="50%" x2="86%" y2="20%" stroke="#c8c4bb" stroke-width="2"></line>
+                <line x1="50%" y1="50%" x2="90%" y2="78%" stroke="#c8c4bb" stroke-width="2"></line>
+                <line x1="50%" y1="50%" x2="50%" y2="92%" stroke="#c8c4bb" stroke-width="2"></line>
+                <line x1="50%" y1="50%" x2="10%" y2="78%" stroke="#c8c4bb" stroke-width="2"></line>
+              </svg>
+              <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#3B82F6;color:#fff;border-radius:12px;padding:9px 14px;font-size:15px;box-shadow:2px 2px 0 rgba(0,0,0,.15);text-align:center;">UI-TARS</div>
+              <div style="position:absolute;left:14%;top:20%;transform:translate(-50%,-50%);background:#fff;border:2px solid #23211d;border-radius:8px;padding:4px 10px;font-size:12px;">Tryton</div>
+              <div style="position:absolute;left:86%;top:20%;transform:translate(-50%,-50%);background:#fff;border:2px solid #23211d;border-radius:8px;padding:4px 10px;font-size:12px;">SAP</div>
+              <div style="position:absolute;left:90%;top:78%;transform:translate(-50%,-50%);background:#fff;border:2px solid #23211d;border-radius:8px;padding:4px 10px;font-size:12px;">Salesforce</div>
+              <div style="position:absolute;left:50%;top:92%;transform:translate(-50%,-50%);background:#fff;border:2px solid #23211d;border-radius:8px;padding:4px 10px;font-size:12px;">Excel</div>
+              <div style="position:absolute;left:10%;top:78%;transform:translate(-50%,-50%);background:#fff;border:2px solid #23211d;border-radius:8px;padding:4px 10px;font-size:12px;">Custom Tools</div>
+            </div>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;color:#8a867d;font-style:italic;text-align:center;">same model. zero re-integration.</span>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">06 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout A — hub &amp; spoke &nbsp;<span style="color:#3B82F6;">★ recommended</span></figcaption>
+        </figure>
+
+        <!-- B: agent -> app list -->
+        <figure style="margin:0;flex:1 1 300px;max-width:380px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:22px 24px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">06 · WHY IT SCALES</span>
+            <h2 style="margin:3px 0 8px;font-weight:400;font-size:21px;line-height:1.04;color:#1a1a1a;">One Agent. Any Software.</h2>
+            <div style="flex:1;display:flex;align-items:center;gap:10px;min-height:0;">
+              <div style="background:#3B82F6;color:#fff;border-radius:10px;padding:10px 8px;font-size:13px;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;">UI-TARS</div>
+              <span style="font-size:18px;color:#3B82F6;">→</span>
+              <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+                <div style="border:2px solid #23211d;border-radius:7px;background:#fff;padding:5px 9px;font-size:12px;">Tryton</div>
+                <div style="border:2px solid #23211d;border-radius:7px;background:#fff;padding:5px 9px;font-size:12px;">SAP</div>
+                <div style="border:2px solid #23211d;border-radius:7px;background:#fff;padding:5px 9px;font-size:12px;">Salesforce</div>
+                <div style="border:2px solid #23211d;border-radius:7px;background:#fff;padding:5px 9px;font-size:12px;">Excel</div>
+                <div style="border:2px solid #23211d;border-radius:7px;background:#fff;padding:5px 9px;font-size:12px;">Custom Tools</div>
+              </div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">06 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout B — agent → app list</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 07 ============ -->
+    <section id="s7" style="animation:fadeUp .5s ease both;margin-bottom:30px;scroll-margin-top:90px;">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;background:#23211d;color:#f6f4ef;padding:3px 8px;border-radius:5px;">SLIDE 07</span>
+        <span style="font-size:24px;">What's Next</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;">the future — PoC to production agent</span>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+        <figure style="margin:0;flex:1 1 620px;max-width:840px;">
+          <div style="position:relative;aspect-ratio:16/9;background:#fcfbf8;border:2.5px solid #23211d;border-radius:10px;box-shadow:5px 6px 0 rgba(0,0,0,.12);padding:26px 30px;display:flex;flex-direction:column;overflow:hidden;">
+            <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#3B82F6;">07 · WHAT'S NEXT</span>
+            <h2 style="margin:3px 0 0;font-weight:400;font-size:27px;line-height:1.04;color:#1a1a1a;">From Proof of Concept to Production Agent</h2>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;">
+              <div style="position:relative;display:flex;justify-content:space-between;gap:8px;padding:0 6px;">
+                <div style="position:absolute;left:9%;right:9%;top:11px;height:2px;background:#d8d4cb;"></div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:7px;z-index:1;">
+                  <span style="width:22px;height:22px;border-radius:50%;background:#3B82F6;"></span>
+                  <span style="font-family:'Space Mono',monospace;font-size:9px;background:#3B82F6;color:#fff;padding:2px 7px;border-radius:5px;">IN PROGRESS</span>
+                  <span style="font-size:15px;color:#1a1a1a;line-height:1.1;"><b>Phase 1</b><br>Expand task coverage within Tryton workflows</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:7px;z-index:1;">
+                  <span style="width:22px;height:22px;border-radius:50%;border:2px solid #9a968d;background:#fcfbf8;"></span>
+                  <span style="font-family:'Space Mono',monospace;font-size:9px;background:#cfcabf;color:#3a382f;padding:2px 7px;border-radius:5px;">PLANNED</span>
+                  <span style="font-size:15px;color:#6b6862;line-height:1.1;"><b>Phase 2</b><br>Test against a second ERP to prove portability</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:7px;z-index:1;">
+                  <span style="width:22px;height:22px;border-radius:50%;border:2px solid #d0ccc3;background:#fcfbf8;"></span>
+                  <span style="font-family:'Space Mono',monospace;font-size:9px;background:#e4e0d7;color:#8a867d;padding:2px 7px;border-radius:5px;">VISION</span>
+                  <span style="font-size:15px;color:#9a968d;line-height:1.1;"><b>Phase 3</b><br>Multi-agent coordination for complex processes</span>
+                </div>
+              </div>
+              <div style="margin-top:20px;text-align:center;">
+                <span style="font-size:26px;color:#3B82F6;">Ready to run the next demo?</span>
+              </div>
+            </div>
+            <span style="position:absolute;bottom:11px;right:15px;font-family:'Space Mono',monospace;font-size:10px;color:#b3afa6;">07 / 07</span>
+          </div>
+          <figcaption style="font-family:'Space Mono',monospace;font-size:11px;color:#6b6862;margin-top:9px;">Layout A — 3-phase roadmap + centered CTA</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

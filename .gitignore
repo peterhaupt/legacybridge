@@ -2,3 +2,6 @@ runs/
 __pycache__/
 *.pyc
 .venv/
+
+# Large regenerable Tryton DB (recreate via generate_data.py)
+*.sqlite
