@@ -51,6 +51,30 @@ human request to a posted invoice:
 
 There are two ways to see it run.
 
+### Live demo prerequisites (read first)
+
+The on-device run drives a real GUI, so the environment has to match what the
+agent was calibrated on. Getting these wrong is the #1 cause of failures:
+
+- **Display at 1512×982 (logical).** The vision model's precision on Tryton's
+  dense menu tree and the four pinned-button fractions were both tuned at this
+  resolution. At a larger resolution the screenshot is downscaled harder before
+  the model sees it, and it starts missing rows; the pinned buttons drift too.
+  Set the Mac's scaled resolution to "looks like 1512×982".
+- **Both windows maximized, same Space.** Maximize Brave (Billflow) and Tryton
+  in place — *not* macOS true-fullscreen (which puts each in its own Space and
+  makes activation/screenshots flaky). The agent auto-switches to Tryton when the
+  run starts and back to Billflow when it finishes.
+- **Tryton: logged in, clean start state.** Left nav tree expanded so
+  *Customer Invoices* is visible, no draft tabs or dialogs open, nothing
+  overlapping the window (close any screen-recording overlays).
+- **Plugged into power.** A sustained ~9-minute inference run throttles on battery.
+- **Abort anytime** by slamming the mouse into a screen corner (pyautogui failsafe).
+
+Then run the server in **real mode** (loads the ~19 GB model once and keeps it
+warm) and wait for `Model warm. LegacyBridge ready.` before clicking. In Billflow:
+**Generate → toggle LegacyBridge on → Push to ERP.**
+
 ### 1. The Billflow demo (the show)
 
 A small Flask server serves the Billflow UI and orchestrates the pipeline.

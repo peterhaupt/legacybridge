@@ -47,6 +47,9 @@ determinism handles everything that can be deterministic.
 - **The Billflow demo** (the show): `python demo/server.py`, then open
   `http://localhost:5050`. Set `FAKE_RUN=1` to walk the UI without invoking the
   local model or doing real clicks.
+  > A real (non-fake) run needs the exact environment in the README's "Live demo
+  > prerequisites" — display at **1512×982**, both windows maximized, Tryton at a
+  > clean start state. Wrong resolution is the #1 failure cause.
 - **The real workflow** (the engine), one on-device command driving a live
   maximized Tryton window:
   ```bash
