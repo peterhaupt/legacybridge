@@ -19,11 +19,11 @@ model:
 target_app: "tryton"
 focus_delay: 1.5            # seconds to wait after activating the app before screenshotting
 
-# Side-by-side demo: scope the agent to the Tryton window only. The screenshot is
-# cropped to that window (so the model never sees the Billflow app beside it and
-# can't mis-click it), and ALL coordinates — vision and at_frac — resolve relative
-# to the window rect. Set false to drive the whole (maximized) screen as before.
-capture_window: true
+# Side-by-side demo would scope the agent to the Tryton window only (crop the
+# screenshot to it; resolve coords relative to its rect). We instead run Tryton
+# maximized + full-screen and auto-switch to it, so the whole screen IS Tryton —
+# keep this false (full-screen capture, at_frac = fraction of screen).
+capture_window: false
 
 loop:
   start_delay: 0            # extra seconds before the first screenshot (focus is now automatic)
