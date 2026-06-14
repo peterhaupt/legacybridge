@@ -18,6 +18,17 @@ ever leaves the machine.
 Think **Plaid or Twilio, but for legacy desktop software**: you build against a
 clean interface, LegacyBridge handles the messy reality behind it.
 
+## Contents
+
+- [Who this is for](#who-this-is-for)
+- [The demo story: Billflow → Tryton](#the-demo-story-billflow--tryton)
+- [Partner technologies](#partner-technologies)
+- [Demo — run it](#demo)
+- [Setup](#setup)
+- [Run modes](#run-modes)
+- [Architecture](#architecture)
+- [How it actually works (the deep dive)](#how-it-actually-works-the-honest-engineering)
+
 ## Who this is for
 
 Developers and startups stuck integrating a legacy desktop application — an old
