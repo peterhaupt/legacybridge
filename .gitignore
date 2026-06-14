@@ -4,5 +4,8 @@ __pycache__/
 .venv/
 .env
 
+# Local-only working drafts (never published)
+pioneer-hackathon-email.md
+
 # Large regenerable Tryton DB (recreate via generate_data.py)
 *.sqlite
