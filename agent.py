@@ -167,17 +167,53 @@ def run_once(backend, handle, settings, task):
     print(f"\nNo action executed. Result written to {out_path}", file=sys.stderr)
 
 
-def run_workflow(backend, handle, settings, workflow_path, start_step=1):
+def load_invoice_substitutions(input_path):
+    """Read an invoice-request JSON and build the {token: value} map the workflow
+    template uses. Single-line invoices only: we take the first line and ignore the
+    rest. All values are coerced to str so they drop straight into target/text."""
+    with open(input_path) as f:
+        data = json.load(f)
+    line = data["lines"][0]
+    return {
+        "party": str(data["party"]),
+        "product": str(line["product"]),
+        "quantity": str(line["quantity"]),
+        "unit_price": str(line["unit_price"]),
+    }
+
+
+def apply_substitutions(step, subs):
+    """Replace the literal {party}/{product}/{quantity}/{unit_price} tokens in a
+    step's `target` and `text` strings. Plain str.replace (not str.format) because
+    the descriptions contain other braces we must leave alone."""
+    step = dict(step)
+    for field in ("target", "text"):
+        if field in step:
+            value = step[field]
+            for token, replacement in subs.items():
+                value = value.replace("{" + token + "}", replacement)
+            step[field] = value
+    return step
+
+
+def run_workflow(backend, handle, settings, workflow_path, start_step=1, input_path=None):
     """Deterministic step-runner. The workflow YAML holds a fixed ordered list of
     steps; we execute exactly one per iteration, in order, never re-judging
     progress. Keyboard steps (hotkey/type/scroll/wait) run directly with no model
     call. Click steps ask the backend ONLY for the coordinates of a described
     target, then click once. A screenshot + trace is written for every step so a
-    failure is pinpointed to a single step."""
+    failure is pinpointed to a single step.
+
+    If input_path is given, invoice values from that JSON are substituted into the
+    template's tokens at runtime, so one template drives any party/product/qty/price."""
     focus_target(settings)
 
     with open(workflow_path) as f:
         steps = yaml.safe_load(f)["steps"]
+
+    if input_path:
+        subs = load_invoice_substitutions(input_path)
+        steps = [apply_substitutions(step, subs) for step in steps]
 
     log_path = os.path.join(settings["screenshots"]["dir"], "trace.log")
     with open(log_path, "w") as f:  # fresh trace per run
@@ -236,6 +272,9 @@ def main():
                     help="run a fixed YAML workflow deterministically (harness owns the sequence)")
     ap.add_argument("--start-step", type=int, default=1,
                     help="resume a workflow from this step (Tryton must already be in that state)")
+    ap.add_argument("--input",
+                    help="JSON invoice request whose party/product/quantity/unit_price "
+                         "are substituted into the workflow template (--workflow only)")
     args = ap.parse_args()
 
     settings = load_settings(args.config)
@@ -246,7 +285,7 @@ def main():
     handle = backend.load(settings)
 
     if args.workflow:
-        run_workflow(backend, handle, settings, args.workflow, args.start_step)
+        run_workflow(backend, handle, settings, args.workflow, args.start_step, args.input)
         return
 
     if args.once:

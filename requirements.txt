@@ -2,3 +2,5 @@ mlx-vlm
 pyautogui
 pyyaml
 pillow
+flask
+requests
