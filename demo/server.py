@@ -223,8 +223,14 @@ def _fake_run():
 
 def _real_run():
     """Drive Tryton with the warm model. Runs in a daemon thread so /push returns
-    immediately; /status watches the trace + this thread."""
+    immediately; /status watches the trace + this thread.
+
+    The agent brings Tryton to the front when it starts (focus_target), so the
+    audience sees the ERP get driven. When it finishes (or errors), we bring the
+    Billflow browser back to the front so the result banner reveals itself —
+    no manual window switching during the demo."""
     global _run_error
+    billflow_app = os.environ.get("BILLFLOW_APP", "Brave Browser")
     try:
         _agent.run_workflow(_backend, _handle, _settings,
                             "workflows/invoice_template.yaml",
@@ -232,6 +238,11 @@ def _real_run():
     except Exception as e:
         _run_error = f"{type(e).__name__}: {e}"
         print(f"[run error] {_run_error}", file=sys.stderr)
+    finally:
+        try:
+            _agent.bring_to_front(billflow_app)  # switch back to Billflow
+        except Exception as e:
+            print(f"[switch-back] {e}", file=sys.stderr)
 
 
 @app.route("/push", methods=["POST"])
